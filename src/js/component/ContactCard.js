@@ -48,7 +48,7 @@ export const ContactCard = () => {
                         <div className="row">
                             <div className="col">
                                 <img
-                                    src="https://media.licdn.com/dms/image/C5603AQGxUFpkS8019A/profile-displayphoto-shrink_800_800/0/1565858447595?e=1714003200&v=beta&t=EkutwHG9f_43Ubm9y8dNI19hBE7winGRXcB1rtZgBHY"
+                                    src="https://cdn.pixabay.com/photo/2022/06/05/07/04/person-7243410_960_720.png"
                                     className="img-contacto"
                                     alt="img-contacto"
                                 />
