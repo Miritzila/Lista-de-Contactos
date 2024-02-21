@@ -23,10 +23,27 @@
     margin-bottom: 10px;
 }
 
-.iconos {
+.info-contacto {
     padding: 20px;
 }
 
-.info-contacto {
+/* Para el icono de lápiz */
+.icono-lapiz {
+    color: black;
     padding: 20px;
+}
+
+.icono-lapiz:hover {
+    color: blue;
+    cursor: pointer;
+}
+
+.icono-basura {
+    color: black;
+    padding: 20px;
+}
+
+.icono-basura:hover {
+    color: red;
+    cursor: pointer;
 }

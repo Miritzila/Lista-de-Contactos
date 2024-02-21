@@ -10,7 +10,7 @@ export const ContactCard = () => {
     useEffect(() => {
         const fetchContacts = async () => {
             try {
-                
+
                 const response = await fetch('https://playground.4geeks.com/apis/fake/contact/agenda/miritzila');
                 if (!response.ok) throw new Error('No se pudo obtener la información de los contactos');
                 const data = await response.json();
@@ -22,6 +22,23 @@ export const ContactCard = () => {
 
         fetchContacts();
     }, []);
+
+    const handleDelete = async (contactId) => {
+        try {
+            const response = await fetch(`https://playground.4geeks.com/apis/fake/contact/${contactId}`, {
+                method: 'DELETE',
+            });
+
+            if (!response.ok) throw new Error('No se pudo eliminar el contacto');
+
+            const updatedContacts = contacts.filter(contact => contact.id !== contactId);
+            setContacts(updatedContacts);
+
+            alert('Contacto eliminado con éxito');
+        } catch (error) {
+            console.error("Error al eliminar el contacto:", error);
+        }
+    };
 
     return (
         <>
@@ -44,9 +61,13 @@ export const ContactCard = () => {
                             </div>
                             <div className="col">
                                 <Link to={`/UpdateContactPage/${contact.id}`}>
-                                    <FontAwesomeIcon className="iconos" icon={faPen} />
+                                    <FontAwesomeIcon className="icono-lapiz" icon={faPen} />
                                 </Link>
-                                <FontAwesomeIcon className="iconos" icon={faTrash} />
+                                <FontAwesomeIcon
+                                    className="icono-basura"
+                                    icon={faTrash}
+                                    onClick={() => handleDelete(contact.id)}
+                                />
                             </div>
                         </div>
                     </div>
